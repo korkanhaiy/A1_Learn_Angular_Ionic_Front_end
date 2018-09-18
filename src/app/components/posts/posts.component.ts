@@ -29,9 +29,17 @@ export class PostsComponent implements OnInit {
   }
 
   AllPosts() {
-    this.postService.getAllPosts().subscribe(data => {
-      this.posts = data.posts;
-    });
+    this.postService.getAllPosts().subscribe(
+      data => {
+        this.posts = data.posts;
+      },
+      err => {
+        if (err.error.token === null) {
+          this.tokenService.DeleteToken();
+          this.router.navigate(['']);
+        }
+      }
+    );
   }
 
   LikePost(post) {

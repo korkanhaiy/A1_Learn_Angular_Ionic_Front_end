@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PostService } from '../../services/post.service';
 import { ActivatedRoute } from '@angular/router';
 import io from 'socket.io-client';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-comments',
@@ -16,6 +17,7 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   commentForm: FormGroup;
   postId: any;
   commentsArray = [];
+  post: string;
 
   constructor(private fb: FormBuilder, private postService: PostService, private route: ActivatedRoute) {
     this.socket = io('http://localhost:3000');
@@ -43,15 +45,22 @@ export class CommentsComponent implements OnInit, AfterViewInit {
   }
 
   AddComment() {
-    this.postService.addComment(this.postId, this.commentForm.value).subscribe(data => {
+    this.postService.addComment(this.postId, this.commentForm.value.comment).subscribe(data => {
       this.socket.emit('refresh', {});
+      console.log(data);
       this.commentForm.reset();
     });
   }
 
   GetPost() {
     this.postService.getPost(this.postId).subscribe(data => {
+      console.log(data);
+      this.post = data.post.post;
       this.commentsArray = data.post.comments.reverse();
     });
+  }
+
+  TimeFromNow(time) {
+    return moment(time).fromNow();
   }
 }

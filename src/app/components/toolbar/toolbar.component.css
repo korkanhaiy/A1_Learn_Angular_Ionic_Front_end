@@ -3,6 +3,7 @@ nav {
   }
   
   .brand-logo {
+    cursor: pointer;
     font-weight: 700;
     font-size: 30px;
   }
