@@ -7,7 +7,7 @@
 
     <div class="col s12 m8 l9">
       <div class="row">
-        <div class="col s12 m6 l4 cardDiv" *ngFor="let user of users">
+        <div class="col s12 m6 l4 cardDiv" *ngFor="let user of following">
           <div class="card">
             <a>
               <div class="card-image imgDiv">
@@ -16,13 +16,9 @@
             </a>
             <div class="card-action">
               <h3 class="card-title">
-                {{user.username}}
+                {{user.userFollowed.username}}
               </h3>
-              <button class="btn" *ngIf="!CheckInArray(userArr, user._id)" (click)="FollowUser(user)">Follow</button>
-              <button class="btn disabled following" id="pointer" *ngIf="CheckInArray(userArr, user._id)">Following</button>
-              <a class="secondary-content">
-                <i class="material-icons" id="pointer">chat</i>
-              </a>
+              <button class="btn" (click)="UnFollowUser(user.userFollowed)">UnFollow</button>
             </div>
           </div>
         </div>

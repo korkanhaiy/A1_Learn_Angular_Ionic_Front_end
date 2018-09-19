@@ -13,4 +13,24 @@ export class UsersService {
   GetAllUsers(): Observable<any> {
     return this.http.get(`${BASEURL}/users`);
   }
+
+  GetUserById(id): Observable<any> {
+    return this.http.get(`${BASEURL}/user/${id}`);
+  }
+
+  GetUserByName(username): Observable<any> {
+    return this.http.get(`${BASEURL}/user/${username}`);
+  }
+
+  FollowUser(userFollowed): Observable<any> {
+    return this.http.post(`${BASEURL}/follow-user`, {
+      userFollowed
+    });
+  }
+
+  UnFollowUser(userFollowed): Observable<any> {
+    return this.http.post(`${BASEURL}/unfollow-user`, {
+      userFollowed
+    });
+  }
 }
