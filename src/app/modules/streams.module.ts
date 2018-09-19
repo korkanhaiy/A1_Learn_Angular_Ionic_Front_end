@@ -11,6 +11,7 @@ import { PostService } from '../services/post.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from '../components/comments/comments.component';
+import { PeopleComponent } from '../components/people/people.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule],
@@ -20,7 +21,8 @@ import { CommentsComponent } from '../components/comments/comments.component';
     SideComponent,
     PostFormComponent,
     PostsComponent,
-    CommentsComponent
+    CommentsComponent,
+    PeopleComponent
   ],
   exports: [StreamsComponent, ToolbarComponent],
   providers: [TokenService, PostService]
