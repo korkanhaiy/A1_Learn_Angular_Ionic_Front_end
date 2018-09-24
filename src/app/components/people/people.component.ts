@@ -46,6 +46,7 @@ export class PeopleComponent implements OnInit {
   FollowUser(user) {
     this.userService.FollowUser(user._id).subscribe(data => {
       this.socket.emit('refresh', {});
+      // console.log(data);
     });
   }
 

@@ -40,4 +40,10 @@ export class UsersService {
       deleteValue
     });
   }
+
+  MarkAllAsRead(): Observable<any> {
+    return this.http.post(`${BASEURL}/mark-all`, {
+      all: true
+    });
+  }
 }

@@ -90,8 +90,8 @@ nav {
     font-weight: normal;
   }
   
-  .unread {
-    color: #64b5f6;
+  .noRead {
+    color: #fc5f17;
     margin: 0px !important;
     padding: 0px !important;
     font-weight: bold;
@@ -117,10 +117,11 @@ nav {
   
   .markAll {
     color: #ffffff;
-    background: #64b5f6 !important;
+    background: #64b5f6 !important; 
   }
   
   li.dropdown-button {
     margin-left: 20px !important;
   }
   
+ 

@@ -29,7 +29,7 @@ export class NotificationsComponent implements OnInit {
 
   GetUser() {
     this.userService.GetUserById(this.user._id).subscribe(data => {
-      this.notifications = data.result.notifications;
+      this.notifications = data.result.notifications.reverse();
       console.log(this.notifications);
     });
     // this.userService.GetUserByName(this.user.username).subscribe(data => {
@@ -41,8 +41,12 @@ export class NotificationsComponent implements OnInit {
   }
   MarkNotification(data) {
     this.userService.MarkNotification(data._id).subscribe(value => {
-      console.log(value);
+      this.socket.emit('refresh', {});
     });
   }
-  DeleteNotification(data) {}
+  DeleteNotification(data) {
+    this.userService.MarkNotification(data._id, true).subscribe(value => {
+      this.socket.emit('refresh', {});
+    });
+  }
 }

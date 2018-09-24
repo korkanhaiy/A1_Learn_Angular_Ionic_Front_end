@@ -11,11 +11,12 @@
           <img class="circle" src="http://placehold.it/50x50" alt="">
           <span class="title">{{data.message}}</span>
           <a class="secondary-content">
-            <i class="material-icons">brightness_1</i>
+            <i class="material-icons" *ngIf="!data.read">brightness_1</i>
+            <i class="material-icons" *ngIf="data.read">panorama_fish_eye</i>
           </a>
           <p class="time">{{TimeFromNow(data.created)}}</p>
           <div>
-            <i class="material-icons" (click)="MarkNotification(data)">check</i>
+            <i [ngClass]="data.read ? 'disbaled': 'notDisabled'" class="material-icons" (click)="MarkNotification(data)">check</i>
             <i class="material-icons" (click)="DeleteNotification(data)">delete_forever</i>
           </div>
         </li>
