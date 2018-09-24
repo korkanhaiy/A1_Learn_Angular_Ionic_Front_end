@@ -10,12 +10,13 @@ a {
     background-color: #64b5f6 !important;
 }
 
+
 .material-icons{
     color: #64b5f6;
 }
 
 .active .material-icons{
-    color: #fff;
+    color: #fff !important;
 }
 
 .row span {

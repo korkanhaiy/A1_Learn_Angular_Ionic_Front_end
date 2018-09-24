@@ -5,7 +5,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li class="dropdown-button dropdown-trigger" data-target='dropdown'>
           <i class="fa fa-globe fa-1x badge"></i>
-          <span class="nav-label-icon pd-l-1 pd-r-1">2</span>
+          <span class="nav-label-icon pd-l-1 pd-r-1" *ngIf="count.length > 0">{{ count.length }}</span>
           <!-- Dropdown Structure -->
           <ul id='dropdown' class='dropdown-content col s12 collection'>
             <li class="collection-item avatar" *ngFor="let data of notifications">
