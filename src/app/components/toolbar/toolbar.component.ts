@@ -27,7 +27,7 @@ export class ToolbarComponent implements OnInit {
     const dropDownElement = document.querySelector('.dropdown-trigger');
     M.Dropdown.init(dropDownElement, {
       alignment: 'right',
-      hover: false,
+      hover: true,
       coverTrigger: false
     });
     this.GetUser();
